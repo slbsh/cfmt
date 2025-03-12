@@ -30,4 +30,11 @@ impl Config {
 		toml::from_str(&std::fs::read_to_string(path)?)
 			.map_err(|e| crate::err!("{e}"))
 	}
+
+	pub fn indent(&self) -> String {
+		match &self.tab_spaces {
+			TabSpaces::Spaces(n) => " ".repeat(*n as usize),
+			TabSpaces::Tabs(_)   => String::from("\t"),
+		}
+	}
 }

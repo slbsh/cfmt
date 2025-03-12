@@ -1,2 +1,8 @@
-fn main() {
+fn main() { 
+	hello::thing();
+	thing();
+
+	{
+		thing();
+	}
 }
